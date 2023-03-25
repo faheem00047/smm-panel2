@@ -1,0 +1,19 @@
+<?php
+
+define('PATH', realpath('.'));
+define('SUBFOLDER', false);
+define('URL', 'https://smmturk.net');
+define('STYLESHEETS_URL', '//smmturk.net');
+
+error_reporting(0);
+date_default_timezone_set('Europe/Istanbul');
+
+return [
+  'db' => [
+    'name'    =>  'smmturkn_smmturk_pane',
+    'host'    =>  'localhost',
+    'user'    =>  'smmturkn_smmturk_pane',
+    'pass'    =>  'k~Rssz_viiGVn(?tA_',
+    'charset' =>  'utf8mb4' 
+  ]
+];

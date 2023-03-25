@@ -1,0 +1,34 @@
+RewriteEngine on
+RewriteCond ${LeechProtect:/home/smm/public_html:%{REMOTE_USER}:%{REMOTE_ADDR}:4:ZYxtaQLItp3dEJB0s9seKUItjUwYCFCv} leech
+RewriteRule .* /
+RewriteCond %{HTTPS} OFF
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^([a-zA-Z0-9-_/]+)$ index.php [QSA]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://smmpanel.business/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://smmpanel.business$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.smmpanel.business/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.smmpanel.business$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://smmpanel.business/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://smmpanel.business$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.smmpanel.business/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.smmpanel.business$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 192.168.0.1
+deny from 2001:0db8:0000:0000:0000:0000:0000:0001
+deny from 192.168.0.2/31
+deny from 192.168.0.4/30
+deny from 192.168.0.8/29
+deny from 192.168.0.16/28
+deny from 192.168.0.32/29
+deny from 192.168.0.40
+deny from 2001:0db8:0000:0000:0000:0000:0000:0002/127
+deny from 2001:0db8:0000:0000:0000:0000:0000:0000/32
